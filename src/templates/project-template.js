@@ -40,7 +40,7 @@ const PageTemplate = ({ data, children }) => {
               <VisitWebsiteIcon className="icon" />
               <span>Zobacz stronę</span>
             </a>
-            <div className="">
+            <div>
               <h3>Technologie: </h3>
               <div className="tags">
                 {tags.map(tag => {
