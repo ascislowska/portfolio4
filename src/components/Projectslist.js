@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-const ProjectsList = ({ projects }) => {
+const Projectslist = ({ projects }) => {
   const backgroundColors = [
     "pastel-yellow",
 
@@ -37,4 +37,4 @@ const ProjectsList = ({ projects }) => {
   )
 }
 
-export default ProjectsList
+export default Projectslist
