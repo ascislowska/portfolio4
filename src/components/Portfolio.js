@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 
-import Projectslist from "./Projectslist"
+// import Projectslist from "./Projectslist"
 
 const Portfolio = () => {
   const data = useStaticQuery(graphql`
@@ -30,7 +30,7 @@ const Portfolio = () => {
   return (
     <div className="section dark">
       <h1 id="portfolio">Moje strony</h1>
-      <Projectslist projects={projects} />
+      {/* <Projectslist projects={projects} /> */}
     </div>
   )
 }

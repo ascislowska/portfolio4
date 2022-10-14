@@ -6,7 +6,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import Layout from "../components/Layout"
 import VisitWebsiteIcon from "../images/icons/portfolio4.svg"
-import Projectslist from "../components/Projectslist"
+// import Projectslist from "../components/Projectslist"
 
 const shortcodes = { Link }
 
@@ -16,7 +16,7 @@ const PageTemplate = ({ data, children }) => {
     frontmatter: { title, tags, link, image },
   } = data.mdx
   //for Projectslist component:
-  const { nodes: projectsList } = data.allMdx
+  const { nodes: projectslist } = data.allMdx
 
   return (
     <Layout>
@@ -51,7 +51,7 @@ const PageTemplate = ({ data, children }) => {
           </div>
         </div>
         <h2>Inne projekty</h2>
-        <Projectslist projects={projectsList} />
+        {/* <Projectslist projects={projectslist} /> */}
       </div>
     </Layout>
   )
