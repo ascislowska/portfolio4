@@ -10,81 +10,16 @@ import VisitWebsiteIcon from "../images/icons/portfolio4.svg"
 const projecttemplate = ({ data, children }) => {
   //single post info:
   const {
-    frontmatter: { title, tags, link, image },
+    frontmatter: { title },
   } = data.mdx
-  //for Projectslist component:
-  const { nodes: projectslist } = data.allMdx
 
-  return (
-    <Layout>
-      <div className="project-page">
-        <div className="img-wrapper">
-          <a href={link} className="site-link" target="_blank" rel="noreferrer">
-            <GatsbyImage
-              image={getImage(image)}
-              className="main-img"
-              alt={title}
-            />
-          </a>
-        </div>
-        <h1>{title}</h1>
-        <div className="project-info">
-          <div className="description">
-            <MDXProvider>{children}</MDXProvider>
-          </div>
-          <div className="details">
-            <a
-              href={link}
-              className="site-link"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <VisitWebsiteIcon className="icon" />
-              <span>Zobacz stronę</span>
-            </a>
-            <div>
-              <h3>Technologie: </h3>
-              <div className="tags">
-                {tags.map(tag => {
-                  return <span className="tag">{tag}</span>
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
-        <h2>Inne projekty</h2>
-        {/* <Projectslist projects={projectslist} /> */}
-      </div>
-    </Layout>
-  )
+  return <Layout>{title}</Layout>
 }
 export const query = graphql`
   query ($id: String!) {
     mdx(id: { eq: $id }) {
       frontmatter {
         title
-        category
-        tags
-        link
-        image {
-          childImageSharp {
-            gatsbyImageData(placeholder: TRACED_SVG)
-          }
-        }
-      }
-    }
-    allMdx {
-      nodes {
-        frontmatter {
-          category
-          title
-          slug
-          image {
-            childImageSharp {
-              gatsbyImageData(placeholder: TRACED_SVG)
-            }
-          }
-        }
       }
     }
   }
