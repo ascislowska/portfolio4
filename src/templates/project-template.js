@@ -1,9 +1,53 @@
 import React from "react"
+import { graphql } from "gatsby"
+import { MDXProvider } from "@mdx-js/react"
+import { Link } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-const projecttemplate = () => {
-  return <div>Helo halo!</div>
+import Layout from "../components/Layout"
+import VisitWebsiteIcon from "../images/icons/portfolio4.svg"
+
+const projecttemplate = ({ data }) => {
+  //single post info:
+  const {
+    frontmatter: { title, tags, link, image },
+  } = data.mdx
+  //for Projectslist component:
+  const { nodes: projectslist } = data.allMdx
+
+  return <div>{title}</div>
 }
-
+export const query = graphql`
+  query ($id: String!) {
+    mdx(id: { eq: $id }) {
+      frontmatter {
+        title
+        category
+        tags
+        link
+        image {
+          childImageSharp {
+            gatsbyImageData(placeholder: TRACED_SVG)
+          }
+        }
+      }
+    }
+    allMdx {
+      nodes {
+        frontmatter {
+          category
+          title
+          slug
+          image {
+            childImageSharp {
+              gatsbyImageData(placeholder: TRACED_SVG)
+            }
+          }
+        }
+      }
+    }
+  }
+`
 export default projecttemplate
 
 // import React from "react"

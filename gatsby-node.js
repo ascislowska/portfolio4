@@ -29,7 +29,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   projects.forEach(node => {
     createPage({
       path: `/project/${node.frontmatter.slug}`,
-      component: `${projecttemplate}?__contentFilePath=${node.internal.contentFilePath}`,
+      component: `${projecttemplate}`,
       context: { id: node.id },
     })
   })
